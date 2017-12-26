@@ -43,7 +43,7 @@ void Player::Update()
 	}
 }
 
-void Player::PreRender
+void Player::PreRender()
 {
 	COORD pos = { x, y };
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -53,7 +53,7 @@ void Player::PreRender
 
 void Player::Jump()
 {
-	state = JUMPING
+	state = JUMPING;
 }
 
 bool Player::CanJump()
