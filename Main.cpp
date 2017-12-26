@@ -43,4 +43,22 @@ void Player::Update()
 	}
 }
 
+void Player::PreRender
+{
+	COORD pos = { x, y };
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(handle, pos);
+	std::cout << " ";
+}
 
+void Player::Jump()
+{
+	state = JUMPING
+}
+
+bool Player::CanJump()
+{
+	if (y == BASE_HEIGHT)
+		return true;
+	return false;
+}
