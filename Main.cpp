@@ -1,32 +1,46 @@
-#pragma once
+#include "Nag³ówek1.h"
 
-#include <Windows.h>
-#include <iostream>
 
-enum PlayerState
+
+Player::Player()
+	:x(4), y(20), state(STAYING), score(0)
 {
-	STAYING = 0,
-	JUMPING = 1,
-	FALLING = 2
-};
+}
 
-class Player
+
+Player::~Player()
 {
-public:
-	int x, y, score;
-	PlayerState state;
+}
 
-	int BASE_HEIGHT = 20;
-	int MAX_JUMP_HEIGHT = (BASE_HEIGHT - 5);
+void Player::Render()
+{
+	COORD pos = { x, y };
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(handle, pos);
+	std::cout << "@";
+}
 
-	Player();
-	~Player();
+void Player::Update()
+{
+	score++;
+	if (state == JUMPING)
+	{
+		if (y > MAX_JUMP_HEIGHT)
+		{
+			y--;
+		}
+		else
+		{
+			state = FALLING;
+		}
+	}
+	else if (state == FALLING)
+	{
+		if (y < BASE_HEIGHT)
+			y++;
+		else
+			state = STAYING;
+	}
+}
 
-	void Render();
-	void Update();
-	void PreRender();
-	void Jump();
-	bool CanJump();
-
-};
 
