@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Nag³ówek1.h"
-#include "Nag³ówek2.h"
+#include "pl.h"
+#include "pr.h"
 #include <vector>
 #include <random>
 

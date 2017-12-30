@@ -13,5 +13,5 @@ public:
 	void PreRender();
 	void Render();
 	void Update();
-}
+};
 

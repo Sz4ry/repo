@@ -1,4 +1,4 @@
-#include "Nag³ówek3.h"
+#include "gm.h"
 
 GameManager::GameManager()
 {

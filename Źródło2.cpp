@@ -1,4 +1,4 @@
-#include "Nag³ówek2.h"
+#include "pr.h"
 
 
 
@@ -14,9 +14,9 @@ Obstacle::~Obstacle()
 
 void Obstacle::PreRender()
 {
-	for (int j = 0; j < h; j+=)
+	for (int j = 0; j < h; j++)
 	{
-		CORD pos = { x, y - j };
+		COORD pos = { x, y - j };
 		HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleCursorPosition(handle, pos);
 		std::cout << " ";
@@ -27,13 +27,14 @@ void Obstacle::Render()
 {
 	for (int j = 0; j < h; j++)
 	{
-		CORD pos = { x, y - j };
+		COORD pos = { x, y - j };
 		HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleCursorPosition(handle, pos);
 		std::cout << "|";
 	}
 
 }
+
 
 void Obstacle::Update()
 {
